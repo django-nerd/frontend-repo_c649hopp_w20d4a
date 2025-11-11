@@ -81,10 +81,10 @@ function Hero() {
               <a href="#projects" className={`inline-flex items-center gap-2 rounded-xl ${accent.grad} text-slate-900 px-5 py-3 font-semibold shadow-lg shadow-orange-600/30 hover:brightness-110 transition`}>
                 View Projects <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#contact" className={`inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 hover:bg-white/10 transition ${accent.ring}`}>
+              <a href="#contact" className={`inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 hover:bg:white/10 transition ${accent.ring}`}>
                 Contact <Mail className="h-4 w-4" />
               </a>
-              <a href="#" className={`inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 hover:bg-white/10 transition ${accent.ring}`}>
+              <a href="#" className={`inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 hover:bg:white/10 transition ${accent.ring}`}>
                 Resume <ExternalLink className="h-4 w-4" />
               </a>
             </div>
@@ -97,7 +97,7 @@ function Hero() {
 
           <div className="relative hidden lg:block">
             <div className="absolute inset-0 rounded-3xl bg-orange-500/10 blur-3xl" />
-            <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+            <div className="relative rounded-3xl border border-white/10 bg:white/5 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
               <div className="aspect-video w-full rounded-2xl overflow-hidden ring-1 ring-white/10">
                 <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
               </div>
@@ -202,7 +202,7 @@ function About() {
               <li className="rounded-xl border border-white/10 bg-white/5 p-4">React, TypeScript, Vite</li>
               <li className="rounded-xl border border-white/10 bg-white/5 p-4">Tailwind, Radix, shadcn/ui</li>
               <li className="rounded-xl border border-white/10 bg-white/5 p-4">Framer Motion, Spline</li>
-              <li className="rounded-xl border border-white/10 bg-white/5 p-4">Testing, Accessibility</li>
+              <li className="rounded-xl border border:white/10 bg-white/5 p-4">Testing, Accessibility</li>
             </ul>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
@@ -265,10 +265,41 @@ function Contact() {
   )
 }
 
+function DockedSocialBar() {
+  return (
+    <div className="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden sm:flex flex-col items-center gap-3">
+      <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-2 shadow-xl">
+        <div className="flex flex-col">
+          <a href="#" aria-label="GitHub" className="group p-2 text-slate-300 hover:text-white">
+            <Github className="h-5 w-5" />
+          </a>
+          <a href="#" aria-label="LinkedIn" className="group p-2 text-slate-300 hover:text-white">
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a href="#contact" aria-label="Email" className="group p-2 text-slate-300 hover:text-white">
+            <Mail className="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+      <div className="h-16 w-px bg-gradient-to-b from-transparent via-orange-500/60 to-transparent" />
+    </div>
+  )
+}
+
+function FloatingCTA() {
+  return (
+    <a href="#contact" className={`fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-2xl ${accent.grad} text-slate-900 px-4 py-3 font-semibold shadow-2xl shadow-orange-700/30 hover:brightness-110 transition hidden sm:inline-flex`}>
+      Hire Me <ArrowRight className="h-4 w-4" />
+    </a>
+  )
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0b0e13] text-slate-100">
       <Navbar />
+      <DockedSocialBar />
+      <FloatingCTA />
       <Hero />
       <main>
         <About />
